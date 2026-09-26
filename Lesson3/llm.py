@@ -12,6 +12,7 @@ log = logging.getLogger("llm")
 # чужі логи (http-запити і т.п.) не потрібні
 logging.getLogger("httpx").setLevel(logging.WARNING)
 logging.getLogger("google_genai").setLevel(logging.ERROR)
+logging.getLogger("httpx2").setLevel(logging.WARNING)  # через нього ходить openai
 
 # версію моделі фіксую явно, щоб не змінилась поведінка без мого відома
 MODELS = {
