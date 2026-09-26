@@ -23,10 +23,30 @@ def parse_json(text):
     return json.loads(text)
 
 
+def norm(value):
+    # "  Анна " і "анна" вважаю однаковими
+    if isinstance(value, str):
+        return value.strip().lower()
+    return value
+
+
+def check(pred, expected):
+    # name, company, is_urgent порівнюю точно
+    # intent - вільний текст, дослівно він майже ніколи не збіжеться,
+    # тому перевіряю тільки що він є (не порожній рядок), а сам текст дивлюсь очима
+    errors = []
+    for field in ("name", "company", "is_urgent"):
+        if norm(pred.get(field)) != norm(expected[field]):
+            errors.append(f"{field}: очікував {expected[field]!r}, отримав {pred.get(field)!r}")
+    if not isinstance(pred.get("intent"), str) or not pred["intent"].strip():
+        errors.append(f"intent порожній: {pred.get('intent')!r}")
+    return errors
+
+
 def run(provider, tests):
     rows = []
     for t in tests:
-        prompt = TEMPLATE.format(text=t["text"])
+        prompt = TEMPLATE.replace("{TEXT}", t["text"])
         try:
             r = llm(prompt, system=SYSTEM, provider=provider, max_tokens=1000, json_mode=True)
         except RuntimeError as e:
@@ -37,13 +57,19 @@ def run(provider, tests):
             continue
 
         try:
-            pred = parse_json(r["text"])["sentiment"]
-        except (json.JSONDecodeError, KeyError, TypeError):
-            pred = "не json: " + r["text"][:60]
+            pred = parse_json(r["text"])
+            errors = check(pred, t["expected"]) if isinstance(pred, dict) else ["відповідь не JSON-об'єкт"]
+        except json.JSONDecodeError:
+            pred = r["text"]
+            errors = ["не json: " + r["text"][:60]]
 
-        ok = pred == t["expected"]
-        print(f"  #{t['id']} очікував={t['expected']:8} отримав={pred:8} {'OK' if ok else 'НЕ ТЕ'}")
-        rows.append({"id": t["id"], "ok": ok, "pred": pred, **r})
+        ok = not errors
+        print(f"  #{t['id']} {'OK' if ok else 'НЕ ТЕ'}")
+        if isinstance(pred, dict):
+            print(f"      intent: {pred.get('intent')!r} (очікував {t['expected']['intent']!r})")
+        for e in errors:
+            print(f"      {e}")
+        rows.append({"id": t["id"], "ok": ok, "pred": pred, "errors": errors, **r})
         time.sleep(PAUSE)
     return rows
 

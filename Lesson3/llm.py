@@ -17,23 +17,22 @@ logging.getLogger("google_genai").setLevel(logging.ERROR)
 MODELS = {
     "google": "gemini-3.5-flash-lite",
     "openai": "gpt-4.1-mini",
-    "anthropic": "claude-haiku-4-5",
+
 }
 
 # ціна в $ за 1М токенів (вхід, вихід), брав з офіційних сторінок 26.09.2026:
 # https://ai.google.dev/gemini-api/docs/pricing
 # https://developers.openai.com/api/docs/pricing
-# https://platform.claude.com/docs/en/about-claude/pricing
+
 PRICES = {
     "gemini-3.5-flash-lite": (0.30, 2.50),
     "gpt-4.1-mini": (0.40, 1.60),
-    "claude-haiku-4-5": (1.00, 5.00),
 }
 
 KEY_NAMES = {
     "google": "GOOGLE_API_KEY",
     "openai": "OPENAI_API_KEY",
-    "anthropic": "ANTHROPIC_API_KEY",
+
 }
 
 
