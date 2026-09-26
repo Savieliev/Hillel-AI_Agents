@@ -1,0 +1,18 @@
+# ключі - ніколи в git
+.env
+.env.*
+!.env.example
+
+# python
+.venv/
+__pycache__/
+*.pyc
+
+# ide
+.idea/
+.vscode/
+
+# матеріали лекції
+*.pdf
+promt.start
+DZ_*.md
