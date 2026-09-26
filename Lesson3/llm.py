@@ -17,13 +17,11 @@ logging.getLogger("google_genai").setLevel(logging.ERROR)
 MODELS = {
     "google": "gemini-3.5-flash-lite",
     "openai": "gpt-4.1-mini",
-
 }
 
 # ціна в $ за 1М токенів (вхід, вихід), брав з офіційних сторінок 26.09.2026:
 # https://ai.google.dev/gemini-api/docs/pricing
 # https://developers.openai.com/api/docs/pricing
-
 PRICES = {
     "gemini-3.5-flash-lite": (0.30, 2.50),
     "gpt-4.1-mini": (0.40, 1.60),
@@ -32,7 +30,6 @@ PRICES = {
 KEY_NAMES = {
     "google": "GOOGLE_API_KEY",
     "openai": "OPENAI_API_KEY",
-
 }
 
 
@@ -115,37 +112,9 @@ def _call_openai(prompt, system, model, max_tokens, json_mode):
     }
 
 
-def _call_anthropic(prompt, system, model, max_tokens, json_mode):
-    import anthropic
-
-    client = anthropic.Anthropic(api_key=get_key("anthropic"), max_retries=0)
-    kwargs = {}
-    if system:
-        kwargs["system"] = system  # в anthropic system окремим параметром, НЕ в messages
-
-    # в новій версії sdk параметра temperature вже немає (новіші моделі його не приймають),
-    # haiku 4.5 ще підтримує, тому передаю через extra_body
-    # json_mode тут немає - json просимо в самому промпті
-    resp = client.messages.create(
-        model=model,
-        max_tokens=max_tokens,  # обов'язковий, без нього 400
-        messages=[{"role": "user", "content": prompt}],
-        extra_body={"temperature": 0},
-        **kwargs,
-    )
-    text = "".join(block.text for block in resp.content if block.type == "text")
-    return {
-        "text": text,
-        "in_tokens": resp.usage.input_tokens,
-        "out_tokens": resp.usage.output_tokens,
-        "stop_reason": resp.stop_reason,
-    }
-
-
 CALLS = {
     "google": _call_google,
     "openai": _call_openai,
-    "anthropic": _call_anthropic,
 }
 
 

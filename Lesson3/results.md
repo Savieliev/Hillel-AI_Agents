@@ -22,7 +22,6 @@ openai | gpt-4.1-mini |  |  |  |  |
 -------|------|-------|-------
 gemini-3.5-flash-lite | 0.30 | 2.50 | https://ai.google.dev/gemini-api/docs/pricing
 gpt-4.1-mini | 0.40 | 1.60 | https://developers.openai.com/api/docs/pricing
-claude-haiku-4-5 | 1.00 | 5.00 | https://platform.claude.com/docs/en/about-claude/pricing
 
 ## Висновок
 
@@ -30,7 +29,7 @@ claude-haiku-4-5 | 1.00 | 5.00 | https://platform.claude.com/docs/en/about-claud
 
 ## Файли
 
-- `llm.py` - функція llm() (google / openai / anthropic), retry 1-2-4-8 с, токени і вартість
+- `llm.py` - функція llm() (google / openai), retry 1-2-4-8 с, токени і вартість
 - `run_tests.py` - прогін тестсету на провайдерах, таблиця
 - `test_retry.py` - перевірка retry з невірним ключем
 - `prompt.py`, `testset.json` - промпт і 5 входів з ДЗ 2
