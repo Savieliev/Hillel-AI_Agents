@@ -1,0 +1,97 @@
+[
+  {
+    "id": 1,
+    "ok": true,
+    "pred": {
+      "name": "Анна",
+      "company": "СофтСерв",
+      "intent": "Надіслати договір на підпис",
+      "is_urgent": true
+    },
+    "errors": [],
+    "text": "{\n  \"name\": \"Анна\",\n  \"company\": \"СофтСерв\",\n  \"intent\": \"Надіслати договір на підпис\",\n  \"is_urgent\": true\n}",
+    "in_tokens": 315,
+    "out_tokens": 48,
+    "stop_reason": "STOP",
+    "provider": "google",
+    "model": "gemini-3.5-flash-lite",
+    "seconds": 4.32,
+    "cost_usd": 0.0002145
+  },
+  {
+    "id": 2,
+    "ok": true,
+    "pred": {
+      "name": "Іван",
+      "company": null,
+      "intent": "Дізнатися вартість послуг",
+      "is_urgent": false
+    },
+    "errors": [],
+    "text": "{\n  \"name\": \"Іван\",\n  \"company\": null,\n  \"intent\": \"Дізнатися вартість послуг\",\n  \"is_urgent\": false\n}",
+    "in_tokens": 309,
+    "out_tokens": 43,
+    "stop_reason": "STOP",
+    "provider": "google",
+    "model": "gemini-3.5-flash-lite",
+    "seconds": 2.15,
+    "cost_usd": 0.0002002
+  },
+  {
+    "id": 3,
+    "ok": true,
+    "pred": {
+      "name": null,
+      "company": "ТОВ Рога і Копита",
+      "intent": "Збій бази даних продакшена",
+      "is_urgent": true
+    },
+    "errors": [],
+    "text": "{\n  \"name\": null,\n  \"company\": \"ТОВ Рога і Копита\",\n  \"intent\": \"Збій бази даних продакшена\",\n  \"is_urgent\": true\n}",
+    "in_tokens": 310,
+    "out_tokens": 47,
+    "stop_reason": "STOP",
+    "provider": "google",
+    "model": "gemini-3.5-flash-lite",
+    "seconds": 2.09,
+    "cost_usd": 0.0002105
+  },
+  {
+    "id": 4,
+    "ok": true,
+    "pred": {
+      "name": "Олена",
+      "company": "ФОП Петренко",
+      "intent": "Запит щодо API для інтеграції",
+      "is_urgent": false
+    },
+    "errors": [],
+    "text": "{\n  \"name\": \"Олена\",\n  \"company\": \"ФОП Петренко\",\n  \"intent\": \"Запит щодо API для інтеграції\",\n  \"is_urgent\": false\n}",
+    "in_tokens": 309,
+    "out_tokens": 47,
+    "stop_reason": "STOP",
+    "provider": "google",
+    "model": "gemini-3.5-flash-lite",
+    "seconds": 2.23,
+    "cost_usd": 0.0002102
+  },
+  {
+    "id": 5,
+    "ok": true,
+    "pred": {
+      "name": null,
+      "company": null,
+      "intent": "Дізнатися графік роботи на свята",
+      "is_urgent": false
+    },
+    "errors": [],
+    "text": "{\n  \"name\": null,\n  \"company\": null,\n  \"intent\": \"Дізнатися графік роботи на свята\",\n  \"is_urgent\": false\n}",
+    "in_tokens": 289,
+    "out_tokens": 42,
+    "stop_reason": "STOP",
+    "provider": "google",
+    "model": "gemini-3.5-flash-lite",
+    "seconds": 2.23,
+    "cost_usd": 0.0001917
+  }
+]

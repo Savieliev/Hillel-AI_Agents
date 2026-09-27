@@ -1,0 +1,97 @@
+[
+  {
+    "id": 1,
+    "ok": true,
+    "pred": {
+      "name": "Анна",
+      "company": "СофтСерв",
+      "intent": "надіслати договір на підпис",
+      "is_urgent": true
+    },
+    "errors": [],
+    "text": "{\n  \"name\": \"Анна\",\n  \"company\": \"СофтСерв\",\n  \"intent\": \"надіслати договір на підпис\",\n  \"is_urgent\": true\n}",
+    "in_tokens": 328,
+    "out_tokens": 44,
+    "stop_reason": "stop",
+    "provider": "openai",
+    "model": "gpt-4.1-mini",
+    "seconds": 3.61,
+    "cost_usd": 0.00020160000000000002
+  },
+  {
+    "id": 2,
+    "ok": true,
+    "pred": {
+      "name": "Іван",
+      "company": null,
+      "intent": "вартість послуг для стартапів",
+      "is_urgent": false
+    },
+    "errors": [],
+    "text": "{\n  \"name\": \"Іван\",\n  \"company\": null,\n  \"intent\": \"вартість послуг для стартапів\",\n  \"is_urgent\": false\n}",
+    "in_tokens": 322,
+    "out_tokens": 38,
+    "stop_reason": "stop",
+    "provider": "openai",
+    "model": "gpt-4.1-mini",
+    "seconds": 1.21,
+    "cost_usd": 0.00018960000000000003
+  },
+  {
+    "id": 3,
+    "ok": true,
+    "pred": {
+      "name": null,
+      "company": "ТОВ Рога і Копита",
+      "intent": "відновлення бази даних",
+      "is_urgent": true
+    },
+    "errors": [],
+    "text": "{\n  \"name\": null,\n  \"company\": \"ТОВ Рога і Копита\",\n  \"intent\": \"відновлення бази даних\",\n  \"is_urgent\": true\n}",
+    "in_tokens": 324,
+    "out_tokens": 43,
+    "stop_reason": "stop",
+    "provider": "openai",
+    "model": "gpt-4.1-mini",
+    "seconds": 1.09,
+    "cost_usd": 0.00019839999999999997
+  },
+  {
+    "id": 4,
+    "ok": true,
+    "pred": {
+      "name": "Олена",
+      "company": "ФОП Петренко",
+      "intent": "запит про API інтеграцію",
+      "is_urgent": false
+    },
+    "errors": [],
+    "text": "{\n  \"name\": \"Олена\",\n  \"company\": \"ФОП Петренко\",\n  \"intent\": \"запит про API інтеграцію\",\n  \"is_urgent\": false\n}",
+    "in_tokens": 324,
+    "out_tokens": 45,
+    "stop_reason": "stop",
+    "provider": "openai",
+    "model": "gpt-4.1-mini",
+    "seconds": 0.99,
+    "cost_usd": 0.0002016
+  },
+  {
+    "id": 5,
+    "ok": true,
+    "pred": {
+      "name": null,
+      "company": null,
+      "intent": "графік роботи на свята",
+      "is_urgent": false
+    },
+    "errors": [],
+    "text": "{\n  \"name\": null,\n  \"company\": null,\n  \"intent\": \"графік роботи на свята\",\n  \"is_urgent\": false\n}",
+    "in_tokens": 298,
+    "out_tokens": 35,
+    "stop_reason": "stop",
+    "provider": "openai",
+    "model": "gpt-4.1-mini",
+    "seconds": 2.49,
+    "cost_usd": 0.00017519999999999998
+  }
+]
